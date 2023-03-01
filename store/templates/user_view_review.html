@@ -1,0 +1,59 @@
+{% extends 'admin_home.html' %}
+{% block title %}View Profiles{% endblock title %}
+{% block content %}
+<html>
+    <head>
+
+    </head>
+    <style type="text/css">
+        table{
+            border: 1px solid gray;
+            width: 80%;
+            padding: 10px;
+        }
+        tr{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        th{
+            border: 1px solid gray;
+            padding: 10px;
+            text-align: center;
+        }
+        td{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+
+    </style>
+    <body>
+        <h1 align="center">Users Profile</h1>
+        <table align="center">
+            <form method="POST">
+              {% csrf_token %}
+            <tr>
+                <th><font color="white">user_id</font></th>
+                <th><font color="white">Review</font></th>
+                <th><font color="white">Reply</font></th>
+                 <th><font color="white">Date</font></th>
+            </tr>
+
+                
+
+            <tr>
+                <td><font color="white">{{data.user_id}}</font></td>
+                <td><font color="white">{{data.Review}}</font></td>
+                <td><font color="white">{{data.email}}</font></td>
+                <td><a href="{% url 'deleteuser' id=data.id %}" class="btn btn-primary" style="text-decoration:none;">Delete </a>td>
+            </tr>
+
+        </table>
+
+    </form>
+    </body>
+</html>
+
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,55 @@
+{% extends 'user_home.html' %}
+{% block title %}Myprofile{% endblock title %}
+{% block content %}
+<html>
+    <head>
+
+    </head>
+    <style type="text/css">
+        table{
+            border: 1px solid gray;
+            width: 80%;
+            padding: 10px;
+        }
+        tr{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        th{
+            border: 1px solid gray;
+            padding: 10px;
+            text-align: center;
+        }
+        td{
+            border: 1px solid gray;
+            padding: 10px;
+        }
+
+
+    </style>
+    <body>
+        <h1 align="center">My Profile</h1>
+        <table align="center">
+            <form method="POST">
+              {% csrf_token %}
+            <tr>
+                <th><font color="white">First Name</font</th>
+                <th><font color="white">Last Name</font></th>
+                <th><font color="white">Email<font></th>
+            </tr>
+            <tr>
+                <td><font color="white">{{data.first_name}}</font></td>
+                <td><font color="white">{{data.last_name}}</font></td>
+                <td><font color="white">{{data.email}}</font></td>
+                <td><a href="{% url 'edituser' id=data.id %}" class="btn btn-primary" style="text-decoration:none;">Edit My Account</a></td>
+              
+
+            </tr>
+        </table>
+    </form>
+    </body>
+</html>
+
+</div>
+</div>
+{% endblock content %}
